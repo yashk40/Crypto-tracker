@@ -31,7 +31,7 @@ export default function CryptoTracker() {
   const [selectedCrypto, setSelectedCrypto] = useState<Crypto | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [favorites, setFavorites] = useState<string[]>([])
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   const fetchCryptos = async () => {
     setLoading(true)
@@ -123,7 +123,7 @@ export default function CryptoTracker() {
   }
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light")
+    setTheme(resolvedTheme === "dark" ? "light" : "dark")
   }
 
   return (
@@ -139,7 +139,7 @@ export default function CryptoTracker() {
 
           <div className="flex items-center gap-2">
             <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full">
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {resolvedTheme === "light" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
             <Button onClick={handleRefresh} variant="outline" size="icon" className="rounded-full">
               <RefreshCw size={16} />
