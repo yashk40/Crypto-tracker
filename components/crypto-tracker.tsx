@@ -137,13 +137,13 @@ export default function CryptoTracker() {
             <h1 className="text-xl font-bold text-gray-900 dark:text-white hidden sm:block">CryptoTracker</h1>
           </div>
 
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full">
-              {resolvedTheme === "light" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </Button>
-            <Button onClick={handleRefresh} variant="outline" size="icon" className="rounded-full">
+          <div className="flex items-center gap-2" >
+            <button   onClick={toggleTheme} className="rounded-full bg-transparent border-0 mx-8" >
+              {resolvedTheme === "light" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4 " />}
+            </button>
+            <button onClick={handleRefresh}  className="rounded-full">
               <RefreshCw size={16} />
-            </Button>
+            </button>
           </div>
         </div>
       </header>
